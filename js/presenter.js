@@ -213,14 +213,14 @@ var Presenter = {
             
                 xmlhttp.open("GET", url, true);
                 xmlhttp.send();
-                // console.log(dynContent);
+                
                 function getFilms(obj){
                     // Loop for each film    
-                    // console.log("running getFilms");
+                    console.log("dynContent: "+dynContent);
                     for(var a = 0; a < obj.films.length; a++){
                         // var templateString = "<lockup template=\"${this.BASEURL}templates/Product.xml.js\" elementType=\"detail\" dynContent=\"https://dl.dropboxusercontent.com/u/11080772/films.json\" filmID=\""+ obj.films[a][0] +"\" presentation=\"defaultPresenter\"><img src=\"" + obj.films[a][7] + "\" width=\"540\" height=\"242\" aspectFill=\"1\" /><title class=\"showTextOnHighlight\">"+ obj.films[a][1]+"</title></lockup>";
-                        var templateString = '<lockup template="http://localhost:9191/templates/Product.xml.js" elementType="detail" dynContent="https://dl.dropboxusercontent.com/u/11080772/films.json" mediaURL="'+ obj.films[a][2]+'" filmID="'+ obj.films[a][0] +'" presentation="defaultPresenter"><img src="' + obj.films[a][6] + '" width="540" height="304" aspectFill="1" /><title class="showTextOnHighlight">'+ obj.films[a][1]+'</title></lockup>';
-                        console.log("film: "+ obj.films[a][6]);
+                        var templateString = '<lockup template="'+resourceLoader.BASEURL +'templates/Product.xml.js" elementType="detail" dynContent="https://dl.dropboxusercontent.com/u/11080772/films.json" mediaURL="'+ obj.films[a][2]+'" filmID="'+ obj.films[a][0] +'" presentation="defaultPresenter"><img src="' + obj.films[a][6] + '" width="540" height="304" aspectFill="1" /><title class="showTextOnHighlight">'+ obj.films[a][1]+'</title></lockup>';
+                        
 
 
                         if(filmTemplate){
@@ -229,7 +229,7 @@ var Presenter = {
                             filmTemplate = templateString;
                         }
                     }
-                    // console.log(filmTemplate);
+                     console.log("filmTemplate: "+filmTemplate);
                     return filmTemplate;            
                 }
                 function getDetail(obj,filmID){

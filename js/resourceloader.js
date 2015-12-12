@@ -29,7 +29,7 @@ function ResourceLoader(baseurl) {
  */
 ResourceLoader.prototype.loadResource = function(resource, callback) {
     var self = this;
-    // console.log("inside resourseLoades.js. resource:" + resource);
+    
 
     /**
      * evaluateScripts is responsible for loading the JavaScript files neccessary
@@ -45,7 +45,7 @@ ResourceLoader.prototype.loadResource = function(resource, callback) {
         if (success) {
             var resource = Template.call(self);
             callback.call(self, resource);
-            // console.log("inside resourseLoades.js. resource:" + resource);
+            
         } else {
             var title = "Resource Loader Error",
                 description = `There was an error attempting to load the resource '${resource}'. \n\n Please try again later.`,
@@ -60,7 +60,7 @@ ResourceLoader.prototype.loadResource = function(resource, callback) {
 ResourceLoader.prototype.loadDetail = function(resource,Title, Director, Cast, mediaURL,Runtime, Poster, Genre, Thumb, Description, callback) {
 
     var self = this;
-    console.log("inside loadDetail "+Title+", "+ Director+", "+ Cast+", "+mediaURL+", "+Runtime);
+    
     evaluateScripts([resource], function(success) {
         if (success) {
             var resource = Template.call(self, Title, Director, Cast, mediaURL,Runtime, Poster, Genre, Thumb, Description);
